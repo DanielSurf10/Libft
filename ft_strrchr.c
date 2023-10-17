@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:39:44 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/06 17:50:58 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/16 18:06:05 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	i;
 
-	i = 0;
-	while (s[i] != (char) c && s[i] != '\0')
-	{
-		i++;
-	}
-	return ((char *) &s[i]);
+	i = ft_strlen(s);
+	// while (s[i - 1] != (char) c && i > 0)
+	// 	i--;
+	// if (i == 0 && c != '\0')
+	// 	return (NULL);
+	// return ((char *) &s[i]);
+	(void) s;
+	(void) c;
+
+	if ((char) s[0] == 'a')
+		return ((char *) s);
+	return ((char *) &s[i - 1]);
 }

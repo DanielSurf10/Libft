@@ -6,14 +6,14 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 19:29:07 by danbarbo          #+#    #+#              #
-#    Updated: 2023/10/15 17:35:29 by danbarbo         ###   ########.fr        #
+#    Updated: 2023/10/15 18:09:20 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 CC		= gcc
 FLAGS	= -Wall -Wextra -Werror -c
-SRC		= ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcpy.c ft_memmove.c ft_memset.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_strchr.c
+SRC		= ${wildcard *.c}
 OBJ		= ${SRC:.c=.o}
 
 all: ${NAME} ${OBJS}
@@ -23,13 +23,20 @@ ${NAME}:
 	ar rcs ${NAME} ${OBJ}
 
 clean:
-	rm -f *.o
+	rm -f ${OBJ}
 
 fclean: clean
 	rm -f ${NAME}
+	rm -f libft.h.gch	# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
+	rm -f libft.so		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
 
-so:
+so:			# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
 	$(CC) -nostartfiles -fPIC $(FLAGS) $(SRC)
 	gcc -nostartfiles -shared -o libft.so $(OBJ)
+
+teste:		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
+	make fclean
+	make -C ../tester f
+	make fclean
 
 re: fclean all
