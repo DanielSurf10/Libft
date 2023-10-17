@@ -6,7 +6,7 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 19:29:07 by danbarbo          #+#    #+#              #
-#    Updated: 2023/10/15 18:09:20 by danbarbo         ###   ########.fr        #
+#    Updated: 2023/10/17 20:07:48 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ clean:
 
 fclean: clean
 	rm -f ${NAME}
-	rm -f libft.h.gch	# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
-	rm -f libft.so		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
+
+re: fclean all
 
 so:			# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
 	$(CC) -nostartfiles -fPIC $(FLAGS) $(SRC)
@@ -36,7 +36,8 @@ so:			# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
 
 teste:		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
 	make fclean
+	rm -f libft.h.gch	# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
+	# rm -f libft.so		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
 	make -C ../tester f
 	make fclean
 
-re: fclean all
