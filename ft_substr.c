@@ -1,43 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 19:04:19 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/20 17:39:00 by danbarbo         ###   ########.fr       */
+/*   Created: 2023/10/20 17:32:13 by danbarbo          #+#    #+#             */
+/*   Updated: 2023/10/21 14:57:24 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-char	*ft_strnstr(const char *str, const char *to_find, size_t n)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t	i;
-	size_t	i_str;
-	char	*first;
+	size_t	size_s;
+	size_t	size_new;
+	char	*new;
 
-	i = 0;
-	i_str = 0;
-	first = (char *) str;
-	while (str[i_str] != '\0' && to_find[i] != '\0' && i_str < n)
+	size_s = ft_strlen(s);
+	if (start >= size_s)
+		size_new = 0;
+	else
 	{
-		if (str[i_str] == to_find[i])
-		{
-			if (first == 0)
-				first = (char *) &str[i_str];
-			i++;
-		}
+		size_s = ft_strlen(s + start);
+		if (size_s >= len)
+			size_new = len;
 		else
-		{
-			i = 0;
-			first = 0;
-		}
-		i_str++;
+			size_new = size_s;
 	}
-	if (to_find[i] == '\0')
-		return (first);
-	return (0);
+	new = (char *) malloc(size_new + 1);
+	if (new == NULL)
+		return (NULL);
+	if (size_new == 0)
+		new[0] = '\0';
+	else
+		ft_strlcpy(new, s + start, size_new + 1);
+	return (new);
 }

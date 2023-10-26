@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 16:51:49 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/15 20:10:36 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/20 20:41:00 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 
 	size_src = ft_strlen(src);
 	size_dst = ft_strlen(dst);
-	if (size <= size_dst)
-		return (size + ft_strlen(src));
+	if (dst && src && size <= size_dst)
+		return (size + size_src);
 	size -= size_dst;
-	ft_strlcpy(&dst[size_dst], src, size);
+	ft_strlcpy(dst + size_dst, src, size);
 	return (size_src + size_dst);
 }

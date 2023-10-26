@@ -1,4 +1,12 @@
 {
 	"C_Cpp.errorSquiggles": "disabled",
-	"C_Cpp.default.compilerPath": "/usr/bin/gcc"
+	"C_Cpp.default.compilerPath": "/usr/bin/gcc",
+	"files.associations": {
+		"concepts": "c",
+		"cstdio": "c",
+		"type_traits": "c",
+		"new": "c",
+		"typeinfo": "c",
+		"libft.h": "c"
+	}
 }

@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 16:39:08 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/20 20:40:01 by danbarbo         ###   ########.fr       */
+/*   Created: 2023/10/20 15:52:49 by danbarbo          #+#    #+#             */
+/*   Updated: 2023/10/21 14:42:55 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	i;
+	int		size_all;
+	char	*join;
 
-	i = 0;
-	if (dst && src && size > 0)
-	{
-		while (i < size - 1 && src[i] != '\0')
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
-	}
-	return (ft_strlen(src));
+	size_all = ft_strlen(s1) + ft_strlen(s2);
+	join = 0;
+	size_all++;
+	join = (char *) malloc(size_all);
+	if (join == NULL)
+		return (NULL);
+	ft_strlcpy(join, s1, size_all);
+	ft_strlcat(join, s2, size_all);
+	return (join);
 }

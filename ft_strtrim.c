@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 16:39:08 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/20 20:40:01 by danbarbo         ###   ########.fr       */
+/*   Created: 2023/10/21 15:04:25 by danbarbo          #+#    #+#             */
+/*   Updated: 2023/10/21 16:58:07 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+static int	letter_is(char c, const char *set)
 {
 	size_t	i;
 
 	i = 0;
-	if (dst && src && size > 0)
+	while (set[i])
 	{
-		while (i < size - 1 && src[i] != '\0')
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		if (set[i] == c)
+			return (1);
+		i++;
 	}
-	return (ft_strlen(src));
+	return (0);
+}
+
+char	*ft_strtrim(char const *str, char const *set)
+{
+	size_t	first;
+	size_t	len;
+
+	first = 0;
+	len = ft_strlen(str);
+	while (letter_is(str[first], set))
+		first++;
+	while (letter_is(str[len - 1], set))
+		len--;
+	return (ft_substr(str, first, len - first));
 }

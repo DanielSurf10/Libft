@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:21:08 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/15 18:49:29 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:39:14 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,15 @@ MU_TEST(test_strlcat_receiving_src_empty_dst_a_size_2_returns_a)
 	char	*expected = "a";
 	int		size = 2;
 	char	result[20];
+	int		expected_ret = 1;
+	int		ret;
 	int		is_equal = 1;
 
 	//ACT
 	ft_strlcpy(result, input_dst, ft_strlen(input_dst) + 1);
-	ft_strlcat(result, input_src, size);
-	is_equal = strcmp(expected, result);
+	ret = ft_strlcat(result, input_src, size);
+	if (strcmp(expected, result) == 0 && ret == expected_ret)
+		is_equal = 0;
 
 	//ASSERT
 	mu_assert_int_eq(0, is_equal);
@@ -43,12 +46,15 @@ MU_TEST(test_strlcat_receiving_src_a_dst_empty_size_2_returns_a)
 	char	*expected = "a";
 	int		size = 2;
 	char	result[20];
+	int		expected_ret = 1;
+	int		ret;
 	int		is_equal = 1;
 
 	//ACT
 	ft_strlcpy(result, input_dst, ft_strlen(input_dst) + 1);
-	ft_strlcat(result, input_src, size);
-	is_equal = strcmp(expected, result);
+	ret = ft_strlcat(result, input_src, size);
+	if (strcmp(expected, result) == 0 && ret == expected_ret)
+		is_equal = 0;
 
 	//ASSERT
 	mu_assert_int_eq(0, is_equal);
@@ -59,15 +65,18 @@ MU_TEST(test_strlcat_receiving_src_abc_dst_1234_size_5_returns_a)
 	//ARRANGE
 	char	*input_src = "1234";
 	char	*input_dst = "abc";
-	char	*expected = "abc1234";
+	char	*expected = "abc1";
 	int		size = 5;
 	char	result[20];
+	int		expected_ret = 7;
+	int		ret;
 	int		is_equal = 1;
 
 	//ACT
 	ft_strlcpy(result, input_dst, ft_strlen(input_dst) + 1);
-	ft_strlcat(result, input_src, size);
-	is_equal = strcmp(expected, result);
+	ret = ft_strlcat(result, input_src, size);
+	if (strcmp(expected, result) == 0 && ret == expected_ret)
+		is_equal = 0;
 
 	//ASSERT
 	mu_assert_int_eq(0, is_equal);
@@ -78,15 +87,18 @@ MU_TEST(test_strlcat_receiving_src_abc_dst_1234_size_3_returns_a)
 	//ARRANGE
 	char	*input_src = "1234";
 	char	*input_dst = "abc";
-	char	*expected = "abc12";
+	char	*expected = "abc";
 	int		size = 3;
 	char	result[20];
+	int		expected_ret = 7;
+	int		ret;
 	int		is_equal = 1;
 
 	//ACT
 	ft_strlcpy(result, input_dst, ft_strlen(input_dst) + 1);
-	ft_strlcat(result, input_src, size);
-	is_equal = strcmp(expected, result);
+	ret = ft_strlcat(result, input_src, size);
+	if (strcmp(expected, result) == 0 && ret == expected_ret)
+		is_equal = 0;
 
 	//ASSERT
 	mu_assert_int_eq(0, is_equal);
@@ -100,12 +112,15 @@ MU_TEST(test_strlcat_receiving_src_abc_dst_1234_size_9_returns_a)
 	char	*expected = "abc1234";
 	int		size = 9;
 	char	result[20];
+	int		expected_ret = 7;
+	int		ret;
 	int		is_equal = 1;
 
 	//ACT
 	ft_strlcpy(result, input_dst, ft_strlen(input_dst) + 1);
-	ft_strlcat(result, input_src, size);
-	is_equal = strcmp(expected, result);
+	ret = ft_strlcat(result, input_src, size);
+	if (strcmp(expected, result) == 0 && ret == expected_ret)
+		is_equal = 0;
 
 	//ASSERT
 	mu_assert_int_eq(0, is_equal);

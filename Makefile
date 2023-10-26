@@ -6,7 +6,7 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 19:29:07 by danbarbo          #+#    #+#              #
-#    Updated: 2023/10/17 20:07:48 by danbarbo         ###   ########.fr        #
+#    Updated: 2023/10/26 15:05:20 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,12 @@ FLAGS	= -Wall -Wextra -Werror -c
 SRC		= ${wildcard *.c}
 OBJ		= ${SRC:.c=.o}
 
-all: ${NAME} ${OBJS}
+all: ${NAME}
 
-${NAME}:
-	${CC} ${FLAGS} ${SRC}
+%.o: %.c
+	gcc ${FLAGS} $< -o $@
+
+${NAME}: ${OBJ}
 	ar rcs ${NAME} ${OBJ}
 
 clean:
@@ -41,3 +43,4 @@ teste:		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA		# APAGAR ESSA BOSTA
 	make -C ../tester f
 	make fclean
 
+.PHONY: all clean fclean re
