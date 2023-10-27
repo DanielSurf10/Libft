@@ -7,6 +7,7 @@
 		"type_traits": "c",
 		"new": "c",
 		"typeinfo": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"list_utils.h": "c"
 	}
 }

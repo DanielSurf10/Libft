@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/09 15:51:45 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/27 17:55:40 by danbarbo         ###   ########.fr       */
+/*   Created: 2023/10/27 17:17:08 by danbarbo          #+#    #+#             */
+/*   Updated: 2023/10/27 17:19:12 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+t_list	*ft_lstlast(t_list *lst)
 {
-	size_t	i;
-	char	*mem_src;
-	char	*mem_dst;
+	t_list	*aux;
 
-	i = 0;
-	mem_src = (char *) src;
-	mem_dst = (char *) dest;
-	if (!dest && !src)
-		return (NULL);
-	while (i < n)
-	{
-		mem_dst[i] = mem_src[i];
-		i++;
-	}
-	return (dest);
+	aux = lst;
+	while (aux && aux->next)
+		aux = aux->next;
+	return (aux);
 }

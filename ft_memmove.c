@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 16:17:56 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/11 20:02:07 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/27 17:55:35 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 
 	mem_src = (char *) src;
 	mem_dst = (char *) dest;
+	if (!dest && !src)
+		return (NULL);
 	if (mem_dst > mem_src)
 	{
 		i = n;

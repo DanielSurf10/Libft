@@ -6,7 +6,7 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 19:29:07 by danbarbo          #+#    #+#              #
-#    Updated: 2023/10/27 13:44:47 by danbarbo         ###   ########.fr        #
+#    Updated: 2023/10/27 18:05:17 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,10 @@ SRC		= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 			ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
 			ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
 			ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
+SRC_BONUS	= ${wildcard *_bonus.c}
 OBJ		= ${SRC:%.c=%.o}
+OBJ_BONUS	= ${SRC_BONUS:%.c=%.o}
+
 
 all: ${NAME}
 
@@ -31,8 +34,11 @@ all: ${NAME}
 
 ${NAME}: ${OBJ}
 
+bonus: ${OBJ_BONUS}
+
 clean:
 	rm -f ${OBJ}
+	rm -f ${OBJ_BONUS}
 
 fclean: clean
 	rm -f ${NAME}
