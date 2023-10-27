@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 12:49:53 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/26 14:45:18 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/27 13:06:51 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,9 @@ char	**ft_split(char const *s, char c)
 	word_iter = 0;
 	word_size = 0;
 	word_count = count_words(s, c);
-	split = malloc((word_count + 1) * sizeof(char *));
+	split = ft_calloc(word_count + 1, sizeof(char *));
 	if (!split)
 		return (NULL);
-	split[word_count] = NULL;
 	while (word_iter < word_count)
 	{
 		while (s[i] == c)
