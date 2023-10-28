@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:23:49 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/20 15:19:57 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/28 06:20:37 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_atoi(const char *str)
 	i = 0;
 	signal = 1;
 	num = 0;
-	if (str == 0)
+	if (!str)
 		return (0);
 	while (ft_isspace(str[i]))
 		i++;

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 16:51:49 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/28 06:15:22 by danbarbo         ###   ########.fr       */
+/*   Created: 2023/10/28 02:55:26 by danbarbo          #+#    #+#             */
+/*   Updated: 2023/10/28 03:03:32 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	size_t	size_src;
-	size_t	size_dst;
+	t_list	*aux;
 
-	size_src = ft_strlen(src);
-	size_dst = ft_strlen(dst);
-	if (size <= size_dst)
-		return (size + size_src);
-	size -= size_dst;
-	ft_strlcpy(dst + size_dst, src, size);
-	return (size_src + size_dst);
+	aux = lst;
+	if (!f)
+		return ;
+	while (aux)
+	{
+		f(aux->content);
+		aux = aux->next;
+	}
 }
