@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 14:11:19 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/20 15:15:44 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/28 22:33:48 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ static int	number_len(int n)
 
 char	*ft_itoa(int n)
 {
+	int		sign;
 	int		digits;
 	char	*num;
-	int		sign;
 
 	sign = 0;
 	digits = number_len(n);
 	if (n < 0)
 		sign = 1;
 	num = (char *) malloc(digits + sign + 1);
-	if (num == NULL)
+	if (!num)
 		return (NULL);
 	num[digits + sign] = '\0';
-	if (sign == 1)
+	if (sign)
 		num[0] = '-';
 	while (digits > 0)
 	{

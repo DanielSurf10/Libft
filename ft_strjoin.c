@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 15:52:49 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/21 14:42:55 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/28 22:34:36 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	join = 0;
 	size_all++;
 	join = (char *) malloc(size_all);
-	if (join == NULL)
+	if (!join)
 		return (NULL);
 	ft_strlcpy(join, s1, size_all);
 	ft_strlcat(join, s2, size_all);

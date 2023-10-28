@@ -6,14 +6,14 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 19:29:07 by danbarbo          #+#    #+#              #
-#    Updated: 2023/10/28 06:06:16 by danbarbo         ###   ########.fr        #
+#    Updated: 2023/10/28 22:47:41 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
 CC		= gcc
-FLAGS	= -Wall -Wextra -Werror -c -g3
-INCLUDE	= libft.h
+FLAGS	= -Wall -Wextra -Werror -c
+INCLUDE	= .
 
 SRC	= ft_atoi.c \
 		ft_bzero.c \

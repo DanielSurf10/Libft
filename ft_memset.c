@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:51:07 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/28 06:36:14 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/28 22:25:08 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	i = 0;
 	if (!s)
-		return (NULL);
+		return (s);
 	mem = (char *) s;
 	while (i < n)
 	{

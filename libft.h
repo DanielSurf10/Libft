@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 13:36:57 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/28 06:37:30 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/28 22:26:45 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t num_elem, size_t size);
-
-// Até aqui foi
 
 /* part 2 - additional functions */
 /* string */

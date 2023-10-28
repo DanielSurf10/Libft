@@ -8,6 +8,7 @@
 		"new": "c",
 		"typeinfo": "c",
 		"libft.h": "c",
-		"list_utils.h": "c"
+		"list_utils.h": "c",
+		"my_utils.h": "c"
 	}
 }
