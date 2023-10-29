@@ -6,7 +6,7 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 19:29:07 by danbarbo          #+#    #+#              #
-#    Updated: 2023/10/29 23:05:15 by danbarbo         ###   ########.fr        #
+#    Updated: 2023/10/29 23:25:58 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ OBJ_BONUS	= ${SRC_BONUS:%.c=%.o}
 
 all: ${NAME}
 ${NAME}: ${OBJ}
-bonus: ${OBJ} ${OBJ_BONUS}
+bonus: ${OBJ_BONUS}
 
 %.o: %.c
 	${CC} ${FLAGS} -I ${INCLUDE} $< -o $@
