@@ -54,33 +54,33 @@ int main()
 
 	// printf("%lu\n", sizeof(int));
 
-// 	t_list	*lst = NULL;
-// 	t_list	*map_lst = NULL;
-// 	t_list	*aux;
+	t_list	*lst = NULL;
+	t_list	*map_lst = NULL;
+	t_list	*aux;
+
+	aux = ft_lstnew(ft_strdup("oi"));
+	ft_lstadd_back(&lst, aux);
+	aux = ft_lstnew(ft_strdup("tudo"));
+	ft_lstadd_back(&lst, aux);
+	aux = ft_lstnew(ft_strdup("bemm?"));
+	ft_lstadd_back(&lst, aux);
+	aux = ft_lstnew(ft_strdup("?????"));
+	ft_lstadd_back(&lst, aux);
+
+	map_lst = ft_lstmap(lst, &faz_algo, &del);
+
+	printf("%s\n", (char *) map_lst->content);
+	printf("%s\n", (char *) map_lst->next->content);
+	printf("%s\n", (char *) map_lst->next->next->content);
+
+	ft_lstclear(&lst, &del);
+	ft_lstclear(&map_lst, &del);
+
+// 	char haystack[30] = "aaabcabcd";
+// 	char needle[10] = "abcd";
 //
-// 	aux = ft_lstnew(ft_strdup("oi"));
-// 	ft_lstadd_back(&lst, aux);
-// 	aux = ft_lstnew(ft_strdup("tudo"));
-// 	ft_lstadd_back(&lst, aux);
-// 	aux = ft_lstnew(ft_strdup("bemm?"));
-// 	ft_lstadd_back(&lst, aux);
-// 	aux = ft_lstnew(ft_strdup("?????"));
-// 	ft_lstadd_back(&lst, aux);
-//
-// 	map_lst = ft_lstmap(lst, &faz_algo, &del);
-
-	// printf("%s\n", (char *) map_lst->content);
-	// printf("%s\n", (char *) map_lst->next->content);
-	// printf("%s\n", (char *) map_lst->next->next->content);
-
-	// ft_lstclear(&lst, &del);
-	// ft_lstclear(&map_lst, &del);
-
-	char haystack[30] = "aaabcabcd";
-	char needle[10] = "abcd";
-
-	char *a = ft_strnstr(haystack, "abcd", 10);
-	printf("%s\n",a);
+// 	char *a = ft_strnstr(haystack, "abcd", 10);
+// 	printf("%s\n",a);
 
 	return (0);
 }

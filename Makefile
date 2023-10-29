@@ -6,12 +6,12 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 19:29:07 by danbarbo          #+#    #+#              #
-#    Updated: 2023/10/28 22:47:41 by danbarbo         ###   ########.fr        #
+#    Updated: 2023/10/29 23:05:15 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= libft.a
-CC		= gcc
+CC		= cc
 FLAGS	= -Wall -Wextra -Werror -c
 INCLUDE	= .
 
@@ -63,14 +63,12 @@ SRC_BONUS	= ft_lstadd_back_bonus.c \
 OBJ_BONUS	= ${SRC_BONUS:%.c=%.o}
 
 all: ${NAME}
+${NAME}: ${OBJ}
+bonus: ${OBJ} ${OBJ_BONUS}
 
 %.o: %.c
 	${CC} ${FLAGS} -I ${INCLUDE} $< -o $@
 	ar rcs ${NAME} $@
-
-${NAME}: ${OBJ}
-
-bonus: ${OBJ} ${OBJ_BONUS}
 
 clean:
 	rm -f ${OBJ}
@@ -80,5 +78,6 @@ fclean: clean
 	rm -f ${NAME}
 
 re: fclean all
+rebonus: fclean bonus
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re rebonus

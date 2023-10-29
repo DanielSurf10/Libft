@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:21:08 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/28 22:11:34 by danbarbo         ###   ########.fr       */
+/*   Updated: 2023/10/29 21:33:49 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,27 @@ MU_TEST(test_strchr_receiving_str_abcd_char_null_char_returns_null_char)
 	mu_assert_int_eq(0, is_equal);
 }
 
+MU_TEST(test_strchr_receiving_str_abcd_char_1024_char_returns_null_char)
+{
+	//ARRANGE
+	char	*input_str = "abcd";
+	int		input_char = 1024;
+	// char	*expected = "";
+	char	*result;
+	int		is_equal = 1;
+
+	//ACT
+	result = ft_strchr(input_str, input_char);
+	if (&input_str[ft_strlen(input_str)] == result)
+		is_equal = 0;
+	else
+		is_equal = 1;
+	// is_equal = strcmp(expected, result);
+
+	//ASSERT
+	mu_assert_int_eq(0, is_equal);
+}
+
 MU_TEST_SUITE(ft_strchr_test_suite)
 {
 	MU_RUN_TEST(test_strchr_receiving_str_a_char_a_returns_a);
@@ -112,6 +133,7 @@ MU_TEST_SUITE(ft_strchr_test_suite)
 	MU_RUN_TEST(test_strchr_receiving_str_abcd_char_b_returns_bcd);
 	MU_RUN_TEST(test_strchr_receiving_str_abcd_char_t_returns_null);
 	MU_RUN_TEST(test_strchr_receiving_str_abcd_char_null_char_returns_null_char);
+	MU_RUN_TEST(test_strchr_receiving_str_abcd_char_1024_char_returns_null_char);
 }
 
 int main(int argc, char *argv[]) {
