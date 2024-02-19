@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 12:49:53 by danbarbo          #+#    #+#             */
-/*   Updated: 2023/10/28 22:39:30 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/02/19 12:22:10 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,20 @@ static int	next_word_size(char const *s, char sep)
 	while (s[size] != sep && s[size] != '\0')
 		size++;
 	return (size);
+}
+
+void	*ft_free_split(char **split)
+{
+	int	i;
+
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)
